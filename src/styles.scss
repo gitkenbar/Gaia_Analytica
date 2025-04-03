@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0px;
+  padding: 0px;
+  color: black;
+}
+
+.pageHolder{
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebarBuilder{
+  width: 5.3rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: forestgreen;
+}
+
+.sidebarFeature{
+  border-bottom: 2px solid black;
+  color: white;
+}
+
+.sidebarFeature:hover{
+  background-color: rgb(41, 167, 41);
+  transition: 2s;
+}
+
+.row{
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(30vw, 1fr));
+}
+
+.padding{
+  padding: 8px 7% 0;
+}
+
+.largeCard{
+  display: flex;
+  flex-direction: column;
+  padding: 1vh;
+  margin: 1vh;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px 2px rgb(190, 190, 190);
+}
