@@ -1,4 +1,4 @@
-<div class="sidebarBuilder">
+<div class="sidebarBuilder" [class.sidebarActive]="isSidebarVisible">
 
   <h3 routerLink="">GAIA</h3>
   <a routerLink="analytics" class="sidebarFeature">Analytics</a>
@@ -7,4 +7,6 @@
   <a routerLink="greenhouse" class="sidebarFeature">GreenHouse</a>
   <a routerLink="shop" class="sidebarFeature">Shop</a>
 
+  <a class="sidebarButton" (click)="toggleSidebar()" [class.sidebarButtonActive]="isSidebarVisible">G</a>
 </div>
+<div class="sidebarPlaceholder"></div>

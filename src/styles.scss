@@ -1,8 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles and Root variables */
 *{
   margin: 0px;
   padding: 0px;
   color: black;
+}
+
+:root{
+  /* Measurements */
+  --sidebarWidth: 5.3rem;
 }
 
 .pageHolder{
@@ -10,11 +15,19 @@
   flex-direction: row;
 }
 
+.padding{
+  padding: 8px 7% 0;
+}
+
+/* Sidebar Styles */
+
 .sidebarBuilder{
-  width: 5.3rem;
+  left:  0;
+  width: var(--sidebarWidth);
   height: 100vh;
   display: flex;
   flex-direction: column;
+  position: fixed;
   background-color: forestgreen;
 }
 
@@ -28,15 +41,37 @@
   transition: 2s;
 }
 
+.sidebarButton{
+  background-color: forestgreen;
+  color: white;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: .55rem;
+  position: fixed;
+  left: 4.7rem;
+  top: 50%;
+}
+.sidebarActive{
+  left: -5.3rem;
+}
+.sidebarButtonActive{
+  left: 1.3rem;
+}
+
+.sidebarPlaceholder{
+  height: 100vh;
+  background-color: forestgreen;
+  width: 2rem;
+}
+
+/* Content Styles */
 .row{
   display: grid;
   grid-template-columns:
     repeat(auto-fit, minmax(30vw, 1fr));
 }
 
-.padding{
-  padding: 8px 7% 0;
-}
+
 
 .largeCard{
   display: flex;
@@ -46,3 +81,4 @@
   border-radius: 5px;
   box-shadow: 2px 2px 8px 2px rgb(190, 190, 190);
 }
+
