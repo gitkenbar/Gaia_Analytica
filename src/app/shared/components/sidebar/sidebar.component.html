@@ -1,12 +1,12 @@
-<div class="sidebarBuilder" [class.sidebarActive]="isSidebarVisible">
+<div class="sidebarBuilder" [class.sidebarDisabled]="isSidebarVisible">
 
-  <h3 routerLink="">GAIA</h3>
-  <a routerLink="analytics" class="sidebarFeature">Analytics</a>
-  <a routerLink="deals" class="sidebarFeature">Deals</a>
-  <a routerLink="field" class="sidebarFeature">Field</a>
+  <h3 routerLink="" (click)="toggleSidebar()">GAIA</h3>
+  <a routerLink="analytics" class="sidebarFeature" (click)="toggleSidebar()">Analytics</a>
+  <a routerLink="deals" class="sidebarFeature" (click)="toggleSidebar()">Deals</a>
+  <a routerLink="field" class="sidebarFeature" (click)="toggleSidebar()">Field</a>
   <a routerLink="greenhouse" class="sidebarFeature">GreenHouse</a>
-  <a routerLink="shop" class="sidebarFeature">Shop</a>
+  <a routerLink="shop" class="sidebarFeature" (click)="toggleSidebar()">Shop</a>
 
   <a class="sidebarButton" (click)="toggleSidebar()" [class.sidebarButtonActive]="isSidebarVisible">G</a>
 </div>
-<div class="sidebarPlaceholder"></div>
+<div class="sidebarPlaceholder" [class.sidebarActive]="!isSidebarVisible"></div>
