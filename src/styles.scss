@@ -22,7 +22,7 @@
 /* Sidebar Styles */
 
 .sidebarBuilder{
-  left:  0;
+  left:  -5.3rem;;
   width: var(--sidebarWidth);
   height: 100vh;
   display: flex;
@@ -48,14 +48,14 @@
   height: 1.4rem;
   border-radius: .55rem;
   position: fixed;
-  left: 4.7rem;
+  left: 1.3rem;
   top: 50%;
 }
 .sidebarActive{
-  left: -5.3rem;
+  left: 0;
 }
 .sidebarButtonActive{
-  left: 1.3rem;
+  left: 4.7rem;
 }
 
 .sidebarPlaceholder{
@@ -72,13 +72,32 @@
 }
 
 
-
 .largeCard{
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   padding: 1vh;
   margin: 1vh;
   border-radius: 5px;
   box-shadow: 2px 2px 8px 2px rgb(190, 190, 190);
 }
 
+.featureNav{
+  display: flex;
+  flex-direction:row;
+  padding: 1vh;
+  margin: 1vh;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px 2px rgb(190, 190, 190);
+}
+
+.buttonLink{
+  background-color: forestgreen;
+  color: white;
+  border-radius: 5px;
+  padding: .2rem;
+  margin: .1rem;
+  width: 6rem;
+}
+.buttonLink:hover{
+  background-color: rgb(43, 172, 43);
+}

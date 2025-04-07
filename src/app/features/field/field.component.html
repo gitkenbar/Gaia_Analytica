@@ -1,14 +1,22 @@
 <div class="padding">
   <div class="row">
+    <div class="title">Field Manager</div>
+    <div class="featureNav">
+      <a class="buttonLink" routerLink="planting">New Field</a>
+      <a class="buttonLink" routerLink="planting">Overview</a>
+    </div>
     <div class="largeCard">
-      <p> Tables and graphs!</p>
       <app-graphcard [chartFromParent]="productionChart"></app-graphcard>
     </div>
     <div class="largeCard">
-      <p> List of User Fields!</p>
-    </div>
-    <div class="largeCard">
-      <p> Links to data entry, audit, statistics pages!</p>
+      <table>
+        <tr>
+          <td>FieldName</td>
+          <td><a class="buttonLink" routerLink="planting">New Planting</a></td>
+          <td><a class="buttonLink" routerLink="planting">Audit</a></td>
+          <td><a class="buttonLink" routerLink="planting">Statistics</a></td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
