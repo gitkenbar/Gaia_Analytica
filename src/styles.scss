@@ -8,27 +8,42 @@
 :root{
   /* Measurements */
   --sidebarWidth: 5.3rem;
+  --card-width: 18rem;
+  --main-min-width: 750px;
+  --gap: 1rem;
+  --graph-size: 17rem;
 }
 
 .pageHolder{
-  display: flex;
-  flex-direction: row;
+
+
+  //display: flex;
+  gap: var(--gap);
+  //flex-wrap: wrap;
+  //flex-direction: row;
 }
+/* .pageHolder:first-child{
+  width: var(--sidebarWidth);
+}
+.pageHolder:last-child{
+  min-width: var(--main-min-width);
+} */
 
 .padding{
-  padding: 8px 7% 0;
+  padding: 8px 4% 0;
 }
 
 /* Sidebar Styles */
 
 .sidebarBuilder{
-  left:  -5.3rem;;
+  left:  -5.3rem;
   width: var(--sidebarWidth);
   height: 100vh;
   display: flex;
   flex-direction: column;
   position: fixed;
   background-color: forestgreen;
+  z-index: 999;
 }
 
 .sidebarFeature{
@@ -48,7 +63,7 @@
   height: 1.4rem;
   border-radius: .55rem;
   position: fixed;
-  left: 1.3rem;
+  left: .5rem;
   top: 50%;
 }
 .sidebarActive{
@@ -59,31 +74,41 @@
 }
 
 .sidebarPlaceholder{
+  position: fixed;
   height: 100vh;
   background-color: forestgreen;
-  width: 2rem;
+  width: 1rem;
 }
 
-/* Content Styles */
-.row{
+/* Feature Styles */
+.gridBuilder{
+  margin-left: 1rem;
   display: grid;
   grid-template-columns:
-    repeat(auto-fit, minmax(30vw, 1fr));
+    repeat(auto-fit, 20rem);
 }
 
 
 .largeCard{
   display: flex;
   flex-direction:column;
+  width: var(--card-width);
   padding: 1vh;
   margin: 1vh;
   border-radius: 5px;
   box-shadow: 2px 2px 8px 2px rgb(190, 190, 190);
 }
+.largeCard>table{
+  min-width: 12rem;
+}
+
+.largeCard>table>tr>td{
+  padding: 3px;
+}
 
 .featureNav{
   display: flex;
-  flex-direction:row;
+  width: var(--card-width);
   padding: 1vh;
   margin: 1vh;
   border-radius: 5px;
@@ -97,7 +122,18 @@
   padding: .2rem;
   margin: .1rem;
   width: 6rem;
+  height: min-content;
 }
+
 .buttonLink:hover{
   background-color: rgb(43, 172, 43);
+}
+
+/* 'Shared' Styles */
+
+.graphHolder{
+
+  position:relative;
+  width: var(--graph-size);
+  height: var(--graph-size);
 }

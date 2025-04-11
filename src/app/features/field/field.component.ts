@@ -11,6 +11,7 @@ import { ChartConfiguration } from 'chart.js/auto';
   styleUrl: '../../../styles.scss'
 })
 export class FieldComponent {
+  fieldNames:string[]= ['field001', 'field002', 'apple garden', 'redbud garden', 'uphill001']
   productionChart:ChartConfiguration={
     type: 'pie',
     data: {
@@ -20,7 +21,7 @@ export class FieldComponent {
         'Carrots'
       ],
       datasets: [{
-        label: 'My First Dataset',
+        label: 'Field Layout Overview',
         data: [300, 50, 100],
         backgroundColor: [
           'lightgreen',
