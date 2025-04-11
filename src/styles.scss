@@ -44,6 +44,8 @@
 .sidebarButton{
   background-color: forestgreen;
   color: white;
+  top:50%;
+  margin: auto;
   width: 1.4rem;
   height: 1.4rem;
   border-radius: .55rem;
@@ -51,9 +53,15 @@
   left: 4.7rem;
   top: 50%;
 }
+
 .sidebarActive{
+  width: var(--sidebarWidth)
+}
+
+.sidebarDisabled{
   left: -5.3rem;
 }
+
 .sidebarButtonActive{
   left: 1.3rem;
 }
