@@ -7,6 +7,6 @@
   <a routerLink="greenhouse" class="sidebarFeature">GreenHouse</a>
   <a routerLink="shop" class="sidebarFeature" (click)="toggleSidebar()">Shop</a>
 
-  <a class="sidebarButton" (click)="toggleSidebar()" [class.sidebarButtonActive]="isSidebarVisible">G</a>
+  <a class="sidebarButton" (click)="toggleSidebar()" [class.sidebarButtonActive]="!isSidebarVisible">G</a>
 </div>
 <div class="sidebarPlaceholder" [class.sidebarActive]="!isSidebarVisible"></div>

@@ -36,7 +36,7 @@
 /* Sidebar Styles */
 
 .sidebarBuilder{
-  left:  -5.3rem;
+  left:  0rem;
   width: var(--sidebarWidth);
   height: 100vh;
   display: flex;
@@ -69,12 +69,6 @@
   top: 50%;
 }
 
-.sidebarActive{
-
-
-  width: var(--sidebarWidth)
-
-}
 .sidebarDisabled{
   left: -5.3rem;
 
