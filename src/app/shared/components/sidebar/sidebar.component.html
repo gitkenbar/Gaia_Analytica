@@ -4,9 +4,14 @@
   <a routerLink="analytics" class="sidebarFeature" (click)="toggleSidebar()">Analytics</a>
   <a routerLink="deals" class="sidebarFeature" (click)="toggleSidebar()">Deals</a>
   <a routerLink="field" class="sidebarFeature" (click)="toggleSidebar()">Field</a>
-  <a routerLink="greenhouse" class="sidebarFeature">GreenHouse</a>
+  <a routerLink="greenhouse" class="sidebarFeature" (click)="toggleSidebar()">GreenHouse</a>
   <a routerLink="shop" class="sidebarFeature" (click)="toggleSidebar()">Shop</a>
 
   <a class="sidebarButton" (click)="toggleSidebar()" [class.sidebarButtonActive]="!isSidebarVisible">G</a>
 </div>
 <div class="sidebarPlaceholder" [class.sidebarActive]="!isSidebarVisible"></div>
+<div class="topnav">
+  <div class="frostHolder">
+    <span class="seasonCountdown">{{this.seasonLength}} days</span>
+  </div>
+</div>

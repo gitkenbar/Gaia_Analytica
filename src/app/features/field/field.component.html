@@ -1,24 +1,22 @@
-<div class="padding">
-  <div class="gridBuilder">
-    <div class="largeCard">
-      <p>Overview</p>
-      <app-graphcard [chartFromParent]="productionChart"></app-graphcard>
-    </div>
-    <div class="largeCard">
-      <table>
-        @for(field of fieldNames; track $index){
-          <tr>
-            <th>{{field}}</th>
-            <td><a class="buttonLink" routerLink="planting">Sow</a></td>
-            <td><a class="buttonLink" routerLink="planting">Audit</a></td>
-            <td><a class="buttonLink" routerLink="planting">Statistics</a></td>
-          </tr>
-        }
-      </table>
-    </div>
-    <div class="featureNav">
-      <a class="buttonLink" routerLink="planting">New Field</a>
-      <a class="buttonLink" routerLink="planting">Overview</a>
-    </div>
+<div class="gridBuilder">
+  <div class="largeCard">
+    <p>Overview</p>
+    <app-graphcard [chartFromParent]="productionChart"></app-graphcard>
+  </div>
+  <div class="largeCard">
+    <table>
+      @for(field of fieldNames; track $index){
+        <tr>
+          <th>{{field}}</th>
+          <td><a class="buttonLink" routerLink="planting">Sow</a></td>
+          <td><a class="buttonLink" routerLink="planting">Audit</a></td>
+          <td><a class="buttonLink" routerLink="planting">Statistics</a></td>
+        </tr>
+      }
+    </table>
+  </div>
+  <div class="featureNav">
+    <a class="buttonLink" routerLink="planting">New Field</a>
+    <a class="buttonLink" routerLink="planting">Overview</a>
   </div>
 </div>

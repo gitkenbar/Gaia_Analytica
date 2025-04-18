@@ -10,5 +10,5 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
   styleUrl: '../styles.scss'
 })
 export class AppComponent {
-  title = 'Gaia_Analytica';
+  title = 'Gaia Analytica';
 }

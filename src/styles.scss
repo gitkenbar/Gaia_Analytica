@@ -7,7 +7,7 @@
 
 :root{
   /* Measurements */
-  --sidebarWidth: 5.3rem;
+  --sidebarWidth: 8rem;
   --card-width: 18rem;
   --main-min-width: 750px;
   --gap: 1rem;
@@ -30,7 +30,7 @@
 } */
 
 .padding{
-  padding: 8px 4% 0;
+  padding: 8px 18px 0;
 }
 
 /* Sidebar Styles */
@@ -48,12 +48,13 @@
 
 .sidebarFeature{
   border-bottom: 2px solid black;
+  padding: .5rem;
   color: white;
 }
 
 .sidebarFeature:hover{
   background-color: rgb(41, 167, 41);
-  transition: 2s;
+  transition: 1.3s;
 }
 
 .sidebarButton{
@@ -70,12 +71,12 @@
 }
 
 .sidebarDisabled{
-  left: -5.3rem;
+  left: calc(var(--sidebarWidth) * -1);
 
 }
 
 .sidebarButtonActive{
-  left: 4.7rem;
+  left: calc(var( --sidebarWidth) - 10px);
 }
 
 .sidebarPlaceholder{
@@ -83,6 +84,27 @@
   height: 100vh;
   background-color: forestgreen;
   width: 1rem;
+}
+
+.topnav{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.frostHolder{
+  padding: 2px;
+  background-color: forestgreen;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.seasonCountdown{
+  color: white;
+}
+
+.usdaZone{
+  font-size: 22px;
+  color: white;
 }
 
 /* Feature Styles */
