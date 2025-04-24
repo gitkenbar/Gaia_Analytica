@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SeasonService } from '../../../core/auth/services/season.service';
+import { SeasonService } from '../../../core/services/season.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,9 +12,8 @@ import { SeasonService } from '../../../core/auth/services/season.service';
 export class SidebarComponent {
   isSidebarVisible:boolean = false;
   date = this.season.getDate();
-  seasonLength = this.season.seasonCountdown()
-  // usdaZone will come from User
-  usdaZone = this.season.getUserZone()
+  seasonLength = this.season.seasonCountdown(['April 14','October 23']);
+  nextSeason = this.season.getSeason();
   toggleSidebar(){
     this.isSidebarVisible = !this.isSidebarVisible
   }

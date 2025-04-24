@@ -7,20 +7,14 @@ import { Injectable } from "@angular/core";
 export class SeasonService {
   // Get date
   currentDate = new Date()
+  growingSeason!: string;
 
   getDate():string{
     return this.currentDate.toDateString()
   }
 
-  getUserZone():string{
-    // Get USDA Zone from User
-    // Hard coding my zone until back-end set up
-    return "7a"
-  }
-
-  seasonCountdown():number{
+  seasonCountdown(frostDates: string[]):number{
     // Figure out where in the season we are at so we know what date we are counting down to
-    let frostDates: string[] = this.getFrostDates(this.getUserZone())
     let seasonChange = this.nextFrostDate(this.currentDate, frostDates)
     // Compare seasonChange with this.currentDate
     let msCount = seasonChange.valueOf() - this.currentDate.valueOf()
@@ -28,18 +22,6 @@ export class SeasonService {
     // Return # of days until season change
     // Some users may need a different system for monsoon/dry season, and folks outside the USA.
     return Math.floor(dayCount)
-  }
-
-  getFrostDates(hardinessZone: string){
-    // Not sure if this is a great way to handle this
-    // External API would be great for this, maybe take in a user ZIP code and do a look-up
-    // OR if I could use the data from NOAA or other sources I could build out an API on the back-end.
-   switch (hardinessZone) {
-      case '7a':
-        return ['April 14','October 23'];
-      default:
-        return ['lookup failed', 'lookup failed'];
-    }
   }
 
   nextFrostDate(today: Date, frostDates:string[]){
@@ -53,12 +35,18 @@ export class SeasonService {
     let nextSpringFrost = new Date(frostDates[0] + ' '+ (theYear + 1))
 
     // Compares values of frost date to currentDate in milliseconds to find the next date
-    if(lastSpringFrost.valueOf() > this.currentDate.valueOf()){
+    if(lastSpringFrost.valueOf() > today.valueOf()){
+      this.growingSeason = 'Frost'
       return lastSpringFrost
-    }else if(firstFallFrost.valueOf() > this.currentDate.valueOf()){
+    }else if(firstFallFrost.valueOf() > today.valueOf()){
+      this.growingSeason = 'Growing'
       return firstFallFrost
-    }else{return nextSpringFrost}
+    }else{
+      this.growingSeason = 'Frost'
+      return nextSpringFrost}
   }
 
-  //
+  getSeason(){
+    return this.growingSeason
+  }
 }

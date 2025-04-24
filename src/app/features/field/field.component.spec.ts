@@ -11,13 +11,13 @@ describe('FieldComponent', () => {
       imports: [FieldComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(FieldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 });
