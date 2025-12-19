@@ -1,22 +1,138 @@
-<div class="gridBuilder">
-  <div class="largeCard">
-    <p>Overview</p>
-    <app-graphcard [chartFromParent]="productionChart"></app-graphcard>
-  </div>
-  <div class="largeCard">
+<div class="contentHolder">
+  @if(this.activeGarden()> -1){
+    <div class="mainContent">
+      <div class="modal-header">
+        <h2>{{this.fieldNames[this.activeGarden()].name}} Schedule</h2>
+      </div>
+      <div class="modal-body">
+        <div>
+          <canvas id='scheduleCanvas' width="770px" height="109px"></canvas>
+        </div>
+        <div class="modal-body">
+          <table class="schedule-holder">
+            <h4></h4>
+            <th>Planting Date:</th>
+            <th>Finish Date:</th>
+            <th></th>
+            @for(plantings of this.fieldNames[this.activeGarden()].schedule; track $index){
+                <h4>{{plantings.crop.name}}</h4>
+                <p>{{plantings.plantingDate.toDateString()}}</p>
+                <p>{{plantings.endDate.toDateString()}}</p>
+                <a class="buttonLink redButton" (click)="removePlant($index)">Delete</a>
+            }
+            <tr>
+              <a class="buttonLink greenButton" (click)="selectModal(this.activeGarden(), 'sowModal')">Sow</a>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  <div class="cardHolder">
     <table>
-      @for(field of fieldNames; track $index){
-        <tr>
-          <th>{{field}}</th>
-          <td><a class="buttonLink" routerLink="planting">Sow</a></td>
-          <td><a class="buttonLink" routerLink="planting">Audit</a></td>
-          <td><a class="buttonLink" routerLink="planting">Statistics</a></td>
-        </tr>
-      }
-    </table>
+    @for(field of fieldNames; track $index){
+            <tr class="card largeCard grid-3">
+              <th>{{field.name}}</th>
+              <td><a class="buttonLink greenButton" (click)="selectModal($index, 'viewModal')">View</a></td>
+              <td><a class="buttonLink redButton" (click)="deleteBedVerification($index)">Delete</a></td>
+            </tr>
+          }
+          <div class="card largeCard grid-1">
+            <a class="buttonLink greenButton" (click)="openModal('fieldModal')">New Garden</a>
+
+          </div>
+        </table>
   </div>
-  <div class="featureNav">
-    <a class="buttonLink" routerLink="planting">New Field</a>
-    <a class="buttonLink" routerLink="planting">Overview</a>
+
+<!-- Field Modal -->
+<div id="fieldModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <form [formGroup]="fieldForm" (ngSubmit)="fieldSubmit()">
+    <div class="modal-header">
+      <span class="close" (click)="closeModal('fieldModal')">&times;</span>
+      <h2>Create Field</h2>
+    </div>
+    <div class="modal-body">
+      <div>
+        <label for="gardenName">gardenName: </label>
+        <input id="gardenName" type="text" formControlName="gardenName" />
+      </div>
+      <div>
+        <label for="gardenLength">gardenLength: </label>
+        <input id="gardenLength" type="text" formControlName="gardenLength" />
+      </div>
+      <div>
+        <label for="gardenWidth">gardenWidth: </label>
+        <input id="gardenWidth" type="text" formControlName="gardenWidth" />
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="buttonLink greenButton" type="Submit" [disabled]="!sowForm.valid">Submit</button>
+    </div>
+  </form>
+  </div>
+</div>
+<!-- Sow Modal -->
+@if(this.activeGarden()> -1){
+<div id="sowModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <form [formGroup]="sowForm" (ngSubmit)="sowSubmit()">
+    <div class="modal-header">
+      <span class="close" (click)="closeModal('sowModal')">&times;</span>
+        <h1>{{fieldNames[this.activeGarden()].name}}</h1>
+    </div>
+    <div class="modal-body">
+      <div class="inputHolder">
+        <label for="plantName">plantName: </label>
+        <input id="plantName" type="text" formControlName="plantName" />
+      </div>
+      <div>
+        <label for="plantingTime">plantingTime: </label>
+        <input id="plantingTime" type="date" formControlName="plantingTime"/>
+        <a class="buttonLink cyan" (click)="onLastFrost()">After Frost</a>
+        <a class="buttonLink green" (click)="afterLastCrop()">Last Crop</a>
+      </div>
+      <div>
+        <label for="plantName">Growing Time: </label>
+        <input id="growingTime" type="number" formControlName="growingTime" />
+        <a class="buttonLink cyan" (click)="untilFirstFrost()">Until Frost</a>
+      </div>
+      <div>
+        <label for="color">Color: </label>
+        <input id="color" type="text" formControlName="color" />
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="buttonLink" type="Submit" [disabled]="!sowForm.valid">Submit</button>
+    </div>
+  </form>
+  </div>
+</div>
+}
+}
+
+<!-- Delete Modal -->
+<div id="deleteModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" (click)="closeModal('deleteModal')">&times;</span>
+      @if(this.activeGarden()> -1){
+        <h2>Permanently delete {{this.fieldNames[this.activeGarden()].name}}?</h2>
+
+      }
+    </div>
+    <div class="modal-body">
+      <a class="buttonLink" (click)="deleteBed(this.activeGarden())">Delete it!</a>
+    </div>
+    <div class="modal-footer">
+
+    </div>
+
   </div>
 </div>

@@ -1,0 +1,22 @@
+<div class="bigBad">
+    <h1>Area Calculator</h1>
+
+  <div class="pad1">
+    <form [formGroup]="form">
+        <label for="gardenLength">Garden Length (feet) </label>
+        <input class="inputClass" id="gardenLength" type="number" [formControl]="form.controls.gardenLength" (input)="updateCalc()">
+        <label for="gardenWidth">Garden Width (feet) </label>
+        <input class="inputClass" id="gardenWidth" type="number" [formControl]="form.controls.gardenWidth" (input)="updateCalc()">
+        <label for="compostDepth">Compost Depth (inches) </label>
+        <input class="inputClass" id="compostDepth" type="number" [formControl]="form.controls.compostDepth" (input)="updateCalc()">
+    </form>
+        <p>Square Feet</p>
+        <h2>{{this.sqft()}}</h2>
+        <p>Cubic Yards:</p>
+        <h2>{{this.cubicYards()}}</h2>
+        <p>5-Gallon Buckets:</p>
+        <h2>{{this.fiveGallonBuckets()}}</h2>
+        <p>32-Gallon Bins:</p>
+        <h2>{{this.thirtyTwoGallonBin()}}</h2>
+  </div>
+</div>

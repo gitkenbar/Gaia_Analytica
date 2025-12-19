@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 
@@ -9,6 +9,11 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
   templateUrl: './app.component.html',
   styleUrl: '../styles.scss'
 })
-export class AppComponent {
+export class AppComponent{
+
   title = 'Gaia Analytica';
+  drawBackground(){
+    let canvas = document.getElementById('backgroundCanvas') as HTMLCanvasElement
+    let ctx = canvas.getContext('2d')
+  }
 }

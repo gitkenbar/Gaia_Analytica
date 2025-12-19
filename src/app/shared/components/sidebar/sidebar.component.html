@@ -1,15 +1,18 @@
-<div class="sidebarBuilder" [class.sidebarDisabled]="isSidebarVisible">
+<div class="sidebarBuilder">
 
-  <h3 routerLink="" (click)="toggleSidebar()">GAIA</h3>
-  <a routerLink="analytics"(click)="toggleSidebar()">Analytics</a>
-  <a routerLink="deals" (click)="toggleSidebar()">Deals</a>
-  <a routerLink="field" (click)="toggleSidebar()">Field</a>
-  <a routerLink="greenhouse" (click)="toggleSidebar()">GreenHouse</a>
-  <a routerLink="shop" (click)="toggleSidebar()">Shop</a>
+  <h3 routerLink="">GAIA</h3>
+  <!-- <a routerLink="analytics">Analytics</a>
+  <a routerLink="deals">Deals</a> -->
+  <a routerLink="shop">Shop</a>
+  <a routerLink="seeds">Seeds</a>
+  <a routerLink="greenhouse">GreenHouse</a>
+  <a routerLink="field">Field</a>
+  <a routerLink="calculators">Calculators</a>
 
-  <div class="sidebarButton" (click)="toggleSidebar()" [class.sidebarButtonActive]="!isSidebarVisible">G</div>
+  <!-- <div class="sidebarButton sidebarButtonActive">
+    <h5 class="sidebarButtonFont">G</h5>
+  </div> -->
 </div>
-<div class="sidebarPlaceholder" [class.sidebarActive]="!isSidebarVisible"></div>
 <div class="topnav">
   <div class="frostHolder">
     <span class="seasonCountdown">{{this.seasonLength}} days of {{this.nextSeason}}</span>

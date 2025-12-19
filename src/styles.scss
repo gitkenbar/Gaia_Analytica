@@ -6,45 +6,65 @@
   font-family: Arial, helvetica, sans-serif;
 }
 
+router-outlet{
+  padding-top: 5px;
+  background-color: var(--green);
+}
+
+html{
+  background-image: url("./assets/images/topography_map.jpg")
+}
+
 :root{
   /* Measurements */
   --sidebarWidth: 8rem;
-  --card-width: 18rem;
+  --large-card-width: 25rem;
+  --large-card-min-width: 25rem;
   --main-min-width: 750px;
+  --feature-width: 95.6vw;
   --gap: 1rem;
   --graph-size: 17rem;
+
+  /* Colors */
+
+  --green: rgb(183, 230, 98);
+  --green-dark: rgb(70, 200, 100);
+  --off-white: rgb(230,230,235);
+  --mystery: rgb(255, 255, 255);
+}
+
+input{
+  border-radius: 4px;
+}
+
+.contentMain{
+  border-radius: 20px;
+  background-color: whitesmoke;
+  padding: 8px 18px 0px;
+  margin-left: var(--sidebarWidth);
+  margin-right: 10px;
+  height: 96.65vh;
+  max-width: 50rem;
+  z-index: 998;
 }
 
 .pageHolder{
-
-
-  //display: flex;
-  gap: var(--gap);
-  //flex-wrap: wrap;
-  //flex-direction: row;
-}
-/* .pageHolder:first-child{
-  width: var(--sidebarWidth);
-}
-.pageHolder:last-child{
-  min-width: var(--main-min-width);
-} */
-
-.padding{
-  padding: 8px 18px 0;
+  justify-self: center;
+  max-width: 67rem;
+  min-width: 60rem;
+  background-color: var(--green);
+  box-shadow: #888 10px 10px 20px;
 }
 
 /* Sidebar Styles */
 
 .sidebarBuilder{
-  left:  0rem;
   width: var(--sidebarWidth);
   height: 100vh;
   display: flex;
   flex-direction: column;
   position: fixed;
-  background-color: forestgreen;
-  z-index: 999;
+  background-color: var(--green);
 }
 
 .sidebarBuilder > h3{
@@ -67,7 +87,7 @@
 }
 
 .sidebarButton{
-  background-color: forestgreen;
+  background-color: var(--green);
   color: white;
   top:50%;
   margin: auto;
@@ -77,6 +97,14 @@
   position: fixed;
   left: .5rem;
   top: 50%;
+}
+
+.sidebarButtonFont{
+  padding-top: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
 }
 
 .sidebarDisabled{
@@ -91,9 +119,11 @@
 .sidebarPlaceholder{
   position: fixed;
   height: 100vh;
-  background-color: forestgreen;
+  background-color: var(--green);
+  border: var(--green-dark) 1px solid;
   width: 1rem;
 }
+
 
 .topnav{
   display: flex;
@@ -103,14 +133,13 @@
 .frostHolder{
   margin-right: 1px;
   padding: 3px;
-  background-color: forestgreen;
+  background-color: var(--green);
+  border: var(--green-dark) 1px solid;
+  font-size: 18px;
+  color: var(--green-dark);
   display: flex;
   flex-direction: row-reverse;
   border-radius: 4px;
-}
-
-.seasonCountdown{
-  color: white;
 }
 
 .usdaZone{
@@ -119,53 +148,120 @@
 }
 
 /* Feature Styles */
-.gridBuilder{
+app-field{
+  display: flex;
+  justify-content: center;
   margin-left: 1rem;
-  display: grid;
-  grid-template-columns:
-    repeat(auto-fit, 20rem);
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
 }
 
-
-.largeCard{
+.cardHolder{
   display: flex;
-  flex-direction:column;
-  width: var(--card-width);
+  flex-wrap: wrap;
+}
+
+.contentHolder{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent{
+  width: min-content;
+  margin-right: 1.5rem;
+}
+
+.grid-3{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid-1{
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: space-between;
+}
+
+.card{
   padding: 1vh;
   margin: 1vh;
   border-radius: 5px;
   box-shadow: 2px 2px 8px 2px rgb(190, 190, 190);
 }
-.largeCard>table{
-  min-width: 12rem;
+.largeCard{
+  width: var(--large-card-width);
+  min-width: var(--large-card-min-width);
 }
 
-.largeCard>table>tr>td{
-  padding: 3px;
+.largeCard img{
+  max-width: 250px;
+}
+
+.largeCard th{
+  width: 16rem;
+  height: 2.6rem;
+  align-content: center;
 }
 
 .featureNav{
   display: flex;
-  width: var(--card-width);
+  width: var(--large-card-width);
   padding: 1vh;
   margin: 1vh;
   border-radius: 5px;
   box-shadow: 2px 2px 8px 2px rgb(190, 190, 190);
 }
 
+.featureHeader{
+  border-radius: 20px 20px 0 0;
+  padding: 7px 0;
+}
+
 .buttonLink{
-  background-color: forestgreen;
   color: white;
+  text-shadow: 1px 1px 10px black;
   border-radius: 5px;
-  padding: .2rem;
-  margin: .1rem;
-  width: 6rem;
+  padding: .3rem;
+  margin: .2rem;
+  width: fit-content;
   height: min-content;
 }
 
-.buttonLink:hover{
-  background-color: rgb(43, 172, 43);
+.greenButton{
+  border: var(--green-dark) outset 4px;
+  background-color: var(--green);
 }
+.greenButton:hover{
+  background-color: var(--green-dark);
+  color: whitesmoke;
+  transition: .8s;
+}
+
+.redButton{
+  border: darkred outset 4px;
+  background-color: red;
+}
+
+.redButton:hover{
+  background-color: darkred;
+  transition: .8s;
+}
+
+.cyan{
+  border: darkcyan outset 4px;
+  background-color: cyan;
+}
+
+.yellow{
+  border: darkgoldenrod outset 4px;
+  background-color: yellow
+}
+
+
 
 /* 'Shared' Styles */
 
@@ -174,4 +270,102 @@
   position:relative;
   width: var(--graph-size);
   height: var(--graph-size);
+}
+
+.schedule-holder{
+  display:grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 2px;
+}
+
+.schedule-holder a{
+  justify-self: right;
+}
+.schedule-holder p, th{
+  justify-self: center;
+}
+.schedule-holder h4, p, th{
+  align-self: center;
+}
+
+/* Modal Styles */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  border-radius: 10px;
+  min-width: 30rem;
+  width:  min-content;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.modal-header{
+  padding: .7rem;
+  background-color: var(--green);
+  border-radius: 8px 8px 0 0;
+}
+.modal-body{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fefefe;
+}
+.modal-body table{
+  margin: 1rem;
+}
+.modal-body>div>label{
+  font-size: 20px;
+}
+
+.modal-footer{
+  padding: .7rem;
+  background-color: var(--green);
+  border-radius: 0 0 8px 8px;
+}
+
+
+
+/* Modal Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Animation Keyframes for Modal Drop-down */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
 }

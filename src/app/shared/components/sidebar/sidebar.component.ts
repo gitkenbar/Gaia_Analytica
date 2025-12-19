@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SeasonService } from '../../../core/services/season.service';
 
@@ -10,13 +10,9 @@ import { SeasonService } from '../../../core/services/season.service';
   styleUrl: '../../../../styles.scss'
 })
 export class SidebarComponent {
-  isSidebarVisible:boolean = false;
   date = this.season.getDate();
   seasonLength = this.season.seasonCountdown(['April 14','October 23']);
   nextSeason = this.season.getSeason();
-  toggleSidebar(){
-    this.isSidebarVisible = !this.isSidebarVisible
-  }
 
   constructor(
     private season: SeasonService,
